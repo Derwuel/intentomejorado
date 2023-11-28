@@ -1,7 +1,6 @@
 <app-header titel="login"></app-header>
 
 <br>
-
 <ion-content>
     <form [formGroup]="form">
 
@@ -10,11 +9,22 @@
     [control]="form.controls.email" 
     type="email" 
     label="Correo"></app-custom-input>
+    <br>
+    <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div *ngIf="form.controls.email.errors?.['required']">Es nesesario introducir un correo</div>
+        <div *ngIf="form.controls.email.errors?.['email']">El correo no es valido</div>
+    </div>
+
+    <br>
 
     <app-custom-input icon="lock-closed-outline" 
     [control]="form.controls.password" 
     type="password" 
     label="Contraseña"></app-custom-input>
+    <br>
+    <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <div *ngIf="form.controls.password.errors?.['required']">Es nesesario introducir una contraseña</div>
+    </div>
 
 </form>
 </ion-content>
