@@ -1,13 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>agregar</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titel="Registrar"></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">agregar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<br>
+<ion-content>
+    
+    <form [formGroup]="form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+    <app-custom-input icon="mail-outline" 
+    autocomplete="emali" 
+    [control]="form.controls.nombre" 
+    type="text" 
+    label="Correo"></app-custom-input>
+    <br>
+    <div class="validators ion-text-center" *ngIf="form.controls.nombre.errors && form.controls.nombre.touched">
+        <div *ngIf="form.controls.nombre.errors?.['required']">Es nesesario introducir un nombre</div>
+        <div *ngIf="form.controls.nombre.errors?.['minLenght']">su nombre de usuario es muy corto</div>
+    </div>
+
+    <app-custom-input icon="lock-closed-outline" 
+    [control]="form.controls.password" 
+    type="password" 
+    label="Contraseña"></app-custom-input>
+    <br>
+    <div class="validators ion-text-center" *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <div *ngIf="form.controls.password.errors?.['required']">Es nesesario introducir una contraseña</div>
+    </div>
+
+    <app-custom-input icon="mail-outline" 
+    autocomplete="emali" 
+    [control]="form.controls.email" 
+    type="email" 
+    label="Correo"></app-custom-input>
+    <br>
+    <div class="validators ion-text-center" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div *ngIf="form.controls.email.errors?.['required']">Es nesesario introducir un correo</div>
+        <div *ngIf="form.controls.email.errors?.['email']">El correo no es valido</div>
+    </div>
+
+    <br>
+    <ion-button expand="block" routerLink="agregar" mode="ios" fill="outline">
+        Registro
+        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+    </ion-button>
+
+</form>
 </ion-content>
