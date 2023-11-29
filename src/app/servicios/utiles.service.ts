@@ -1,5 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { alumno } from './alumnosModel';
 
 @Injectable({
   providedIn: 'root'
