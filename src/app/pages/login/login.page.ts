@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UtilesService } from 'src/app/servicios/utiles.service';
 
 @Component({
@@ -16,7 +16,8 @@ export class LoginPage implements OnInit {
 
   utilesSer = inject(UtilesService)
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }
